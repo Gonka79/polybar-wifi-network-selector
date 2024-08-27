@@ -16,4 +16,21 @@ This repository contains a customizable script and Rofi theme for displaying and
    ```bash
    git clone https://github.com/yourusername/polybar-wifi-network-selector.git
    cd polybar-wifi-network-selector
+   ```
+
+   ## Place the script in your Polybar scripts directory:
+   `cp wifi-menu.sh ~/.config/polybar/scripts/`
+
+   ## Ensure the script is executable:
+   `chmod +x ~/.config/polybar/scripts/wifi-menu.sh`
+
+   ## Place the Rofi theme in the appropriate directory:
+   ``` mkdir -p ~/.config/polybar/scripts/rofi
+       cp wifi-menu.rasi ~/.config/polybar/scripts/rofi/
+   ```
+
+
+
+
+   
 
