@@ -80,7 +80,92 @@ Feel free to fork the repository, submit pull requests, or open issues for any b
 # License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
-   
+
+
+
+# Documentación en Español 
+# Selector de red Wi-Fi de Polybar
+
+Este repositorio contiene un script personalizable y un tema Rofi para visualizar y administrar redes Wi-Fi directamente desde Polybar. Con esta configuración, puede ver fácilmente su conexión Wi-Fi actual y cambiar entre las redes disponibles con solo unos pocos clics.
+
+## Características
+
+- **Mostrar red actual**: el módulo Polybar muestra el nombre de la red Wi-Fi conectada actualmente o indica si no hay ninguna red conectada.
+- **Selección de red con Rofi**: al hacer clic en el módulo Polybar, se inicia un menú Rofi que enumera todas las redes Wi-Fi disponibles. Los usuarios pueden seleccionar una red a la que conectarse y, si la red está protegida con contraseña, el script solicita la contraseña.
+- **Integración perfecta**: diseñado para una fácil integración con cualquier configuración de Polybar, compatible con varias distribuciones de Linux aprovechando las variables del entorno.
+- **Configuración portátil**: el script y la configuración son completamente portátiles, lo que facilita su adaptación para diferentes usuarios y entornos.
+
+## Instalación
+
+1. **Clonar este repositorio** y navegar al directorio:
+
+```bash
+git clone https://github.com/yourusername/polybar-wifi-network-selector.git
+cd polybar-wifi-network-selector
+```
+
+## 2. Colocar el script en el directorio de scripts de Polybar:
+```
+cp wifi-menu.sh ~/.config/polybar/scripts/
+```
+
+## 3. Asegurarse de que el script sea ejecutable:
+```
+chmod +x ~/.config/polybar/scripts/wifi-menu.sh
+```
+
+## 4. Colocar el tema Rofi en el directorio apropiado:
+
+```
+mkdir -p ~/.config/polybar/scripts/rofi
+cp wifi-menu.rasi ~/.config/polybar/scripts/rofi/
+```
+## 5. Edite la configuración de Polybar (~/.config/polybar/config) para incluir el módulo Wi-Fi:
+```
+[module/wifi]
+type = custom/script
+exec = ~/.config/polybar/scripts/wifi-menu.sh
+click-left = ~/.config/polybar/scripts/wifi-menu.sh --select
+interval = 10
+format-padding = 2
+```
+
+## 6. Reinicie Polybar para aplicar los cambios:
+
+```
+polybar-msg cmd restart
+
+```
+
+# Dependencias
+
+NetworkManager: el script se basa en nmcli, que es parte de NetworkManager.
+Rofi: Rofi se utiliza para mostrar la lista de redes Wi-Fi disponibles en un menú fácil de usar.
+
+Instale estas dependencias con:
+```
+sudo apt install network-manager rofi
+```
+
+# Personalización
+
+**Tema Rofi:** El tema se encuentra en ~/.config/polybar/scripts/rofi/wifi-menu.rasi y se puede personalizar para que coincida con su entorno de escritorio.
+
+**Configuración del módulo Polybar:** Ajuste la apariencia y el comportamiento del módulo Polybar editando parámetros como format-padding y content.
+
+# Uso
+
+**Mostrar red actual:** El módulo Polybar muestra el SSID de la red conectada.
+
+**Seleccionar una red:** Haga clic en el módulo para abrir el menú Rofi y seleccionar una red Wi-Fi diferente. Si la red seleccionada está protegida con contraseña, se le solicitará que ingrese la contraseña.
+
+# Contribución
+
+Siéntase libre de crear un fork del repositorio, enviar solicitudes de incorporación de cambios o abrir problemas para cualquier error o solicitud de funciones. ¡Las contribuciones son bienvenidas!
+
+# Licencia
+
+Este proyecto está licenciado bajo la licencia MIT. Consulte el archivo de LICENCIA para obtener más detalles.
 
 
 
